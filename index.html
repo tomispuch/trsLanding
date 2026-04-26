@@ -496,6 +496,41 @@
       color:rgba(7,7,8,.6);
     }
 
+    /* ===== FOUNDER ===== */
+    .founder-section {
+      background:var(--black);
+      border-top:1px solid var(--border);
+    }
+    .founder-hl {
+      font-family:var(--font-display);
+      font-size:clamp(2.5rem,6vw,5.5rem);
+      line-height:.9; letter-spacing:-.02em;
+      margin-bottom:3.5rem;
+    }
+    .founder-hl span { color:var(--red); }
+    .founder {
+      display:flex; align-items:center; gap:3rem;
+      max-width:720px; margin:0 auto;
+    }
+    .founder-photo {
+      width:110px; height:110px; border-radius:50%;
+      object-fit:cover; object-position:center top;
+      flex-shrink:0; border:2px solid rgba(7,7,8,.18);
+    }
+    .founder-text { flex:1; }
+    .founder-name {
+      font-family:var(--font-display); font-size:1.6rem;
+      color:var(--white); letter-spacing:-.01em; margin-bottom:.5rem;
+    }
+    .founder-bio {
+      font-size:.9rem; line-height:1.75; color:rgba(255,255,255,.55);
+      max-width:560px;
+    }
+    @media (max-width:600px) {
+      .founder { flex-direction:column; text-align:center; }
+      .founder-bio { max-width:100%; }
+    }
+
     /* ===== CONTACT ===== */
     .contact { background:var(--black); border-top:1px solid var(--border); }
     .contact-layout { display:grid; grid-template-columns:1fr 1.3fr; gap:6rem; align-items:start; }
@@ -968,6 +1003,22 @@
           <div class="why-bg-num">04</div>
           <h3 class="why-item-title">SOPORTE CONTINUO</h3>
           <p class="why-item-desc">La suscripción incluye mantenimiento, ajustes y soporte. No te abandonamos después de la implementación.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <div class="wrap">
+      <div class="sec-label reveal">El equipo</div>
+      <h2 class="founder-hl reveal d1">Hola,<br>soy <span>Tomás.</span></h2>
+      <div class="founder reveal d2">
+        <img class="founder-photo" src="assets/tomas.png" alt="Tomás Rodríguez Spuch — Fundador de TRS Automatizaciones">
+        <div class="founder-text">
+          <p class="founder-name">Tomás Rodríguez Spuch</p>
+          <p class="founder-bio">Estudiante avanzado de Ingeniería en Sistemas de Información. Fundé TRS porque vi de primera mano el poder que tiene la automatización en la vida de las personas y, sobre todo, en la vida de los negocios. Hoy ayudo a personas y PyMEs a sacarse de encima las tareas repetitivas que les quitan tiempo valioso.</p>
         </div>
       </div>
     </div>
