@@ -69,8 +69,28 @@ body::after {
 .btn-ghost:hover { color:#fff; border-color:rgba(255,255,255,.6); transform:translateY(-2px); }
 .btn-dark { background:transparent; color:var(--black); border:1px solid rgba(7,7,8,.3); }
 .btn-dark:hover { background:rgba(7,7,8,.08); transform:translateY(-2px); }
-.btn-wpp { background:#25D366; color:#fff; display:inline-flex; align-items:center; gap:8px; margin-top:1.5rem; }
-.btn-wpp:hover { background:#1ebe5d; transform:translateY(-2px); }
+.btn-wpp {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-top:1.5rem;
+  padding:12px 22px;
+  border-radius:100px;
+  border:1.5px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.06);
+  color:rgba(255,255,255,0.85);
+  font-family:var(--font-body);
+  font-size:.9rem;
+  font-weight:500;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .25s, border-color .25s, transform .25s;
+}
+.btn-wpp:hover { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.35); transform:translateY(-2px); }
+.btn-wpp__icon {
+  display:flex; align-items:center; justify-content:center;
+  width:30px; height:30px; border-radius:50%;
+  background:#25D366;
+  flex-shrink:0;
+}
 
 /* ===== SECTION UTILITIES ===== */
 .wrap { max-width:1380px; margin:0 auto; width:100%; }
