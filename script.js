@@ -35,13 +35,41 @@ const obs = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Accordion
-function toggleAcc(trigger) {
-  const item = trigger.closest('.acc-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+// Generic carousel — handles every .sp-carousel on the page
+function initCarousel(el) {
+  const track = el.querySelector('.sp-track');
+  if (!track) return;
+  const slides = track.querySelectorAll('.sp-slide');
+  const dots   = el.querySelectorAll('.sp-dot');
+  const prev   = el.querySelector('.sp-prev');
+  const next   = el.querySelector('.sp-next');
+  const numEl  = el.querySelector('.sp-current-num');
+  const total  = slides.length;
+  let idx = 0;
+
+  const go = (i) => {
+    idx = (i + total) % total;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d, k)   => d.classList.toggle('active', k === idx));
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === idx));
+    if (numEl) numEl.textContent = String(idx + 1).padStart(2, '0');
+  };
+
+  if (prev) prev.addEventListener('click', () => go(idx - 1));
+  if (next) next.addEventListener('click', () => go(idx + 1));
+  dots.forEach((d, k) => d.addEventListener('click', () => go(k)));
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 50) go(idx + (diff < 0 ? 1 : -1));
+  });
+
+  slides[0].classList.add('is-active');
 }
+
+document.querySelectorAll('.sp-carousel').forEach(initCarousel);
 
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
