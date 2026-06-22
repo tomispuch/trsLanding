@@ -820,6 +820,8 @@ footer {
     grid-template-columns:1fr;
     gap:3rem;
   }
+  .sp-case .sp-case-text   { order:1; }
+  .sp-case .sp-case-visual { order:2; }
   .sp-slide { padding:.5rem 0; }
   .sp-card-big { max-width:340px; min-height:auto; padding:2rem 1.75rem 2.25rem; }
   .sp-card-logo-wrap { min-height:110px; margin:.75rem 0 2rem; }
