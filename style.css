@@ -419,6 +419,24 @@ section { padding:7rem 2.5rem; }
   margin-bottom: 1.5rem;
   max-width: 480px;
 }
+.sp-list {
+  list-style: none;
+  margin: 0 0 1.5rem; padding: 0;
+  max-width: 480px;
+  display: flex; flex-direction: column; gap: .65rem;
+}
+.sp-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 1rem; line-height: 1.5;
+  color: rgba(255,255,255,.55);
+}
+.sp-list li::before {
+  content: "";
+  position: absolute; left: 0; top: .6em;
+  width: 6px; height: 6px;
+  background: var(--red);
+}
 .sp-result {
   font-size: .9rem; font-weight: 600;
   color: rgba(255,255,255,.85);
